@@ -27,6 +27,8 @@ public:
     long Target;
     QString Start;
     QString Stop;
+    int LineSource;
+    int LineTarget;
     int Lenght;
     int Time=0;
     QByteArray wstr;

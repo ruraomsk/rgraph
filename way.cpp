@@ -14,9 +14,12 @@ Way::Way(QString way)
     Region=map["region"].toInt();
     Source=map["source"].toLongLong();
     Target=map["target"].toLongLong();
+    LineSource=map["lsource"].toInt();
+    LineTarget=map["ltarget"].toInt();
     Start=map["starts"].toString();
     Stop=map["stops"].toString();
     Lenght=map["lenght"].toInt();
+    if (Lenght<=0) Lenght=1;
     Time=map["time"].toInt();
 }
 
@@ -26,6 +29,8 @@ const char *Way::Marshal()
     map["region"]=Region;
     map["source"]=(long long)Source;
     map["target"]=(long long)Target;
+    map["lsource"]=LineSource;
+    map["target"]=LineTarget;
     map["starts"]=Start;
     map["stops"]=Stop;
     map["lenght"]=Lenght;

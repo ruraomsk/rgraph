@@ -26,6 +26,7 @@ public:
     float Scale;
     QString Name;
     QByteArray vstr;
+    int color=0 ;
 };
 
 #endif // VERTEX_H
