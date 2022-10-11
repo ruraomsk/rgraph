@@ -132,7 +132,7 @@ int Rgraph::GetNumberPoint()
     return ++number;
 }
 
-bool Rgraph::AddWay(Cross source, Cross target, int lenght)
+bool Rgraph::AddWay(Cross source, Cross target, int lenght,int time)
 {
     if (!verify(source) ||!verify(target) ) return false;
     Way way;
@@ -142,28 +142,29 @@ bool Rgraph::AddWay(Cross source, Cross target, int lenght)
     way.Start=source.Dgis;
     way.Stop=target.Dgis;
     way.Lenght=lenght;
+    way.Time=time;
     vertexes[way.Source].ways[way.Target]=way;
     return true;
 }
 
-bool Rgraph::AddWayToPoint(Cross source, int number, int lenght)
+bool Rgraph::AddWayToPoint(Cross source, int number, int lenght,int time)
 {
     Cross target=Cross(Region,0,number,"","");
     if (!vertexes.contains(target.getUID())) return false;
     auto p=vertexes[target.getUID()];
     target.Dgis=p.Dgis;
     target.Name=p.Name;
-    return AddWay(source,target,lenght);
+    return AddWay(source,target,lenght,time);
 }
 
-bool Rgraph::AddWayFromPoint(int number, Cross target, int lenght)
+bool Rgraph::AddWayFromPoint(int number, Cross target, int lenght,int time)
 {
     Cross source=Cross(Region,0,number,"","");
     if (!vertexes.contains(source.getUID())) return false;
     auto p=vertexes[source.getUID()];
     source.Dgis=p.Dgis;
     source.Name=p.Name;
-    return AddWay(source,target,lenght);
+    return AddWay(source,target,lenght,time);
 }
 
 bool Rgraph::DeleteWay(Cross source, Cross target)

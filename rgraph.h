@@ -30,9 +30,9 @@ public:
     bool AddPoint(int number,QString position,QString name);
     bool DeletePoint(int number);
     int GetNumberPoint();
-    bool AddWay(Cross source,Cross target,int lenght);
-    bool AddWayToPoint(Cross source,int number,int lenght);
-    bool AddWayFromPoint(int number,Cross target,int lenght);
+    bool AddWay(Cross source,Cross target,int lenght,int time);
+    bool AddWayToPoint(Cross source,int number,int lenght,int time);
+    bool AddWayFromPoint(int number,Cross target,int lenght,int time);
     bool DeleteWay(Cross source,Cross target);
     bool DeleteWayToPoint(Cross source,int number);
     bool DeleteWayFromPoint(int number,Cross target);
